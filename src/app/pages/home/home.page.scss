@@ -1,1 +1,9 @@
-
+.completed {
+  ion-label {
+    text-decoration: line-through;
+    color: #d9d9d9;
+  }
+}
+ion-label {
+  transition: color 400ms ease-in;
+}

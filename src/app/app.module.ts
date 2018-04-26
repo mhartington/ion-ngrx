@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { todosReducer } from './reducers';
 import { IonicModule } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { AppComponent } from './app.component';
   entryComponents: [],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ todos: todosReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 10 }),
     IonicModule.forRoot(),
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },

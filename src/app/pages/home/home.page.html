@@ -4,9 +4,26 @@
       Ionic Blank
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <form (ngSubmit)='addTodo(f)'>
+      <ion-searchbar [(ngModel)]="newTodo" [ngModelOptions]="{standalone: true}"></ion-searchbar>
+    </form>
+  </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content>
+  <ion-list #todoList>
+    <ion-item-sliding *ngFor="let todo of todos | async">
+      <ion-item [ngClass]="{'completed': todo.completed }">
+        <ion-label>{{todo.text}}</ion-label>
+      </ion-item>
+      <ion-item-options slot="end">
+        <ion-item-option color="sucess" (click)='toggleTodo(todo)'>
+          <ion-icon name="checkmark"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)='removeTodo(todo)'>
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

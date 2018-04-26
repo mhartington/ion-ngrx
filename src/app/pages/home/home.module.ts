@@ -4,11 +4,17 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { StoreModule } from '@ngrx/store';
+import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
+    StoreModule,
+    StoreDevtoolsModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: '',
