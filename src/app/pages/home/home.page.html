@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Ionic NGRX
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
@@ -12,7 +12,7 @@
 </ion-header>
 <ion-content>
   <ion-list #todoList>
-    <ion-item-sliding *ngFor="let todo of todos | async">
+    <ion-item-sliding *ngFor="let todo of todos$ | async">
       <ion-item [ngClass]="{'completed': todo.completed }">
         <ion-label>{{todo.text}}</ion-label>
       </ion-item>

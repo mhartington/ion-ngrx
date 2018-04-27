@@ -4,7 +4,7 @@ export type Action = TodoActions.All;
 const defaultState = [];
 
 const newTodo = (state, payload) => [...state, { ...payload, id: Date.now() }];
-const removeTodo = (state, payload) => state.filter(e => e !== payload);
+const removeTodo = (state, payload) => state.filter(e => e.id !== payload.id);
 const toggleTodo = (state, payload) =>
   state.map(
     todo =>
