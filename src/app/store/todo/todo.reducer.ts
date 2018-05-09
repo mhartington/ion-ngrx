@@ -11,7 +11,10 @@ const toggleTodo = (state, payload) =>
       todo.id === payload.id ? { ...todo, completed: !todo.completed } : todo
   );
 
-export function todosReducer(state: Array<Todo> = defaultState, action: TodoActions.All) {
+export function todosReducer(
+  state: Array<Todo> = defaultState,
+  action: TodoActions.All
+) {
   switch (action.type) {
     case TodoActions.ADD:
       return newTodo(state, action.payload);
