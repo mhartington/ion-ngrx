@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { todosReducer } from './reducers';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 
 import env from '../environment';
+import { APP_REDUCERS, appDefaultState } from './store';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ todos: todosReducer }),
+    StoreModule.forRoot(APP_REDUCERS, {
+      initialState: appDefaultState
+    }),
     env.name === 'development'
       ? StoreDevtoolsModule.instrument({ maxAge: 10 })
       : [],

@@ -5,14 +5,14 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <form (ngSubmit)='addTodo(f)'>
-      <ion-searchbar [(ngModel)]="newTodo" [ngModelOptions]="{standalone: true}"></ion-searchbar>
+    <form (ngSubmit)='searchTodo(searchTerm)'>
+      <ion-searchbar [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"></ion-searchbar>
     </form>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-list #todoList>
-    <ion-item-sliding *ngFor="let todo of todos$ | async">
+    <ion-item-sliding *ngFor="let todo of todos$ | async | todoFilter: searchTerm">
       <ion-item [ngClass]="{'completed': todo.completed }">
         <ion-label>{{todo.text}}</ion-label>
       </ion-item>
@@ -26,4 +26,9 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button  class="add-button" (click)="addTodo()">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

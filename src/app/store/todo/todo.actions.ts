@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Todo } from '../model';
+import { Todo } from '../../model';
 
 export const ADD = '[Todos] Add';
 export const REMOVE = '[Todos] Remove';

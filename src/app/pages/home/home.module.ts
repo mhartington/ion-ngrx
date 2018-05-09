@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     IonicModule,
     StoreModule,
     StoreDevtoolsModule,
+    PipesModule,
     FormsModule,
     RouterModule.forChild([
       {

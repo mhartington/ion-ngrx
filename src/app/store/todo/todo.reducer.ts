@@ -1,7 +1,7 @@
-import * as TodoActions from '../actions';
-export type Action = TodoActions.All;
+import * as TodoActions from './todo.actions';
+import { Todo } from '../../model';
 
-const defaultState = [];
+export const defaultState = [];
 
 const newTodo = (state, payload) => [...state, { ...payload, id: Date.now() }];
 const removeTodo = (state, payload) => state.filter(e => e.id !== payload.id);
@@ -11,7 +11,7 @@ const toggleTodo = (state, payload) =>
       todo.id === payload.id ? { ...todo, completed: !todo.completed } : todo
   );
 
-export function todosReducer(state = defaultState, action: Action) {
+export function todosReducer(state: Array<Todo> = defaultState, action: TodoActions.All) {
   switch (action.type) {
     case TodoActions.ADD:
       return newTodo(state, action.payload);
