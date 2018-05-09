@@ -1,10 +1,3 @@
-/**
- * @author Robert Flagg
- * @created Nov 14, 2017
- * @copyright Pfizer inc
- * @desc Shared store state
- */
-
 import { ActionReducerMap } from '@ngrx/store';
 
 import * as fromTodo from './todo/todo.reducer';
