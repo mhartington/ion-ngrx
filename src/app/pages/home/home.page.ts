@@ -12,8 +12,8 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  // Observable based class members are suffixed with a $
-  // to mark that they reactive
+  // Observable based class members are suffixed
+  // with a $ to mark that they reactive
   public todos$: Observable<Array<Todo>>;
 
   public searchTerm = '';
@@ -33,25 +33,29 @@ export class HomePage implements OnInit {
     this.todoList.nativeElement.closeSlidingItems();
     this.store.dispatch(new TodoActions.Toggle(todo));
   }
-
   async addTodo() {
     const popup = await this.alertCtrl.create({
       header: 'Create Todo',
-      inputs: [{
-        type: 'text',
-        name: 'text',
-        placeholder: 'Enter todo text',
-      }],
-      buttons: [{
-        text: 'Cancel'
-      }, {
-        text: 'Save',
-        handler: ({text}) => {
-          this.store.dispatch(
-            new TodoActions.Add({ text, completed: false })
-          );
+      inputs: [
+        {
+          type: 'text',
+          name: 'text',
+          placeholder: 'Enter todo text'
         }
-      }]
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: ({ text }) => {
+            this.store.dispatch(
+              new TodoActions.Add({ text, completed: false })
+            );
+          }
+        }
+      ]
     });
     popup.present();
   }

@@ -5,15 +5,13 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <form (ngSubmit)='searchTodo(searchTerm)'>
       <ion-searchbar [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"></ion-searchbar>
-    </form>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-list #todoList>
     <ion-item-sliding *ngFor="let todo of todos$ | async | todoFilter: searchTerm">
-      <ion-item [ngClass]="{'completed': todo.completed }">
+      <ion-item [ngClass]="{'completed': todo.completed }" lines="inset">
         <ion-label>{{todo.text}}</ion-label>
       </ion-item>
       <ion-item-options slot="end">
