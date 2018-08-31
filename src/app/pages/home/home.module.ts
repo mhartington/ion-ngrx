@@ -8,7 +8,6 @@ import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PipesModule } from '../../pipes/pipes.module';
-import env from '../../../environment';
 
 @NgModule({
   imports: [

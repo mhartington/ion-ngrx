@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 
-import env from '../environment';
+import { environment } from '../environments/environment';
 import { APP_REDUCERS, appDefaultState } from './store';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { APP_REDUCERS, appDefaultState } from './store';
     StoreModule.forRoot(APP_REDUCERS, {
       initialState: appDefaultState
     }),
-    env.name === 'development'
+    environment.production
       ? StoreDevtoolsModule.instrument({ maxAge: 10 })
       : [],
     IonicModule.forRoot(),
